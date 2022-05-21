@@ -28,6 +28,7 @@
   },
   "devDependencies": {
     "@babel/core": "^7.17.10",
+    "@heroicons/react": "^1.0.6",
     "@hookform/resolvers": "^2.8.8",
     "@next/eslint-plugin-next": "^12.1.6",
     "@storybook/addon-actions": "^6.4.22",

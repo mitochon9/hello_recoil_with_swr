@@ -14,7 +14,7 @@ export const propObj: PropObj = {
       text: 'completed',
       isCompleted: true,
     },
-    isEdit: false,
+    isEditNum: 2,
     toggleCompleted: () => {
       alert('toggleCompleted');
     },
@@ -37,7 +37,7 @@ export const propObj: PropObj = {
       text: 'inCompleted',
       isCompleted: false,
     },
-    isEdit: false,
+    isEditNum: 2,
     toggleCompleted: () => {
       alert('toggleCompleted');
     },
@@ -61,7 +61,7 @@ export const propObj: PropObj = {
       text: 'Edit',
       isCompleted: false,
     },
-    isEdit: true,
+    isEditNum: 1,
     toggleCompleted: () => {
       alert('toggleCompleted');
     },
@@ -82,10 +82,10 @@ export const propObj: PropObj = {
   longText: {
     todo: {
       id: 1,
-      text: 'LongTextLongTextLongTextLongTextLongTextLongTextLongTextLongTextLongTextLongText',
+      text: 'LongTextLongTextLongTextLongTextLongTextLongTextLongTextLongTextLongTextLongTextLongTextLongTextLongTextLongTextLongTextLongTextLongTextLongTextLongTextLongText',
       isCompleted: false,
     },
-    isEdit: false,
+    isEditNum: 2,
     toggleCompleted: () => {
       alert('toggleCompleted');
     },

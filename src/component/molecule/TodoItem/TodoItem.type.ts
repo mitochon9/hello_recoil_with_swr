@@ -4,7 +4,7 @@ export interface TodoItemProps {
     text: string;
     isCompleted: boolean;
   };
-  isEdit: boolean;
+  isEditNum: number;
   toggleCompleted: (id: number) => void;
   setIsEditTodo: (id: number) => void;
   confirmEditTodo: (text: string) => void;

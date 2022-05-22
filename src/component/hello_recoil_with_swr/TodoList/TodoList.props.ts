@@ -8,7 +8,7 @@ const defaultProps: TodoListProps = {
         text: 'completed',
         isCompleted: true,
       },
-      isEdit: false,
+      isEditNum: 2,
       toggleCompleted: () => {
         alert('toggleCompleted');
       },
@@ -31,7 +31,7 @@ const defaultProps: TodoListProps = {
         text: 'inCompleted',
         isCompleted: false,
       },
-      isEdit: true,
+      isEditNum: 2,
       toggleCompleted: () => {
         alert('toggleCompleted');
       },
@@ -54,7 +54,7 @@ const defaultProps: TodoListProps = {
         text: 'inCompleted',
         isCompleted: false,
       },
-      isEdit: false,
+      isEditNum: 2,
       toggleCompleted: () => {
         alert('toggleCompleted');
       },

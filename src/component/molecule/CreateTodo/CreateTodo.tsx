@@ -29,19 +29,22 @@ export const CreateTodo: React.FC<CreateTodoProps> = ({ createTodo }) => {
 
   return (
     <>
-      <div className='flex items-center gap-x-1'>
-        <form onSubmit={handleSubmit(onSubmit)}>
-          {errors.text && <p className='text-right text-pink-700'>※ 入力が必要です</p>}
-          <div className='flex w-full items-center gap-x-1'>
-            <input
-              {...register('text')}
-              className='w-80 rounded-lg px-2 py-1 text-lg outline outline-primary-600'
-            />
-            <button>
-              <Icon type='plus' />
-            </button>
-          </div>
-        </form>
+      <div>
+        <h2>Create Todo</h2>
+        <div className='flex items-center gap-x-1'>
+          <form onSubmit={handleSubmit(onSubmit)} className='w-full'>
+            {errors.text && <p className='text-right text-pink-700'>※ 入力が必要です</p>}
+            <div className='flex items-center gap-x-1'>
+              <input
+                {...register('text')}
+                className='w-full rounded-lg px-2 py-1 text-lg outline outline-primary-600'
+              />
+              <button>
+                <Icon type='plus' />
+              </button>
+            </div>
+          </form>
+        </div>
       </div>
     </>
   );

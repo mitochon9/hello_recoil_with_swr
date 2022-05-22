@@ -13,7 +13,7 @@ const formInputSchema = z.object({
 
 export const TodoItem: React.FC<TodoItemProps> = ({
   todo,
-  isEdit,
+  isEditNum,
   toggleCompleted,
   setIsEditTodo,
   confirmEditTodo,
@@ -38,30 +38,30 @@ export const TodoItem: React.FC<TodoItemProps> = ({
   return (
     <>
       <div data-testid={baseId} className='flex items-center gap-x-1'>
-        {isEdit ? (
-          <form onSubmit={handleSubmit(onSubmit)}>
-            {errors.text && <p className='text-right text-pink-700'>※ 入力が必要です</p>}
-            <div className='flex w-full items-center gap-x-1'>
+        {todo.id === isEditNum ? (
+          <form onSubmit={handleSubmit(onSubmit)} className='w-full'>
+            {errors.text && <p className='text-pink-700'>※ 入力が必要です</p>}
+            <div className='flex items-center gap-x-1'>
               <input
                 {...register('text')}
-                className='w-80 rounded-lg px-2 py-1 text-lg outline outline-primary-600'
+                className='w-full rounded-lg px-2 py-1 text-lg outline outline-primary-600'
               />
               <button type='submit'>
                 <Icon type='check' />
               </button>
-              <button onClick={cancelEditTodo}>
+              <button type='button' onClick={cancelEditTodo}>
                 <Icon type='cancel' />
               </button>
             </div>
           </form>
         ) : (
-          <div className='flex items-center gap-x-1'>
+          <div className='flex w-full items-center gap-x-1'>
             <input
               type='checkbox'
               checked={todo.isCompleted}
               onChange={() => toggleCompleted(todo.id)}
             />
-            <p className='w-80 truncate text-lg'>{todo.text}</p>
+            <p className='flex-1 truncate text-lg'>{todo.text}</p>
             <button onClick={() => setIsEditTodo(todo.id)}>
               <Icon type='edit' />
             </button>

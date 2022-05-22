@@ -1,8 +1,18 @@
-import { PencilAltIcon, TrashIcon, CheckCircleIcon, XCircleIcon } from '@heroicons/react/solid';
+import {
+  PlusCircleIcon,
+  PencilAltIcon,
+  TrashIcon,
+  CheckCircleIcon,
+  XCircleIcon,
+} from '@heroicons/react/solid';
 import { IconProps } from './Icon.type';
 
 export const Icon: React.FC<IconProps> = ({ type }) => {
   switch (type) {
+    case 'plus':
+      return (
+        <PlusCircleIcon className='w-8 text-primary-600 duration-300 hover:text-primary-700' />
+      );
     case 'edit':
       return <PencilAltIcon className='w-8 text-primary-600 duration-300 hover:text-primary-700' />;
     case 'trash':

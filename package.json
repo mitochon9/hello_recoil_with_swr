@@ -11,7 +11,16 @@
     "test:dev": "jest --watch",
     "sb": "start-storybook -p 6006 -h localhost",
     "build-storybook": "build-storybook -s public",
-    "generate": "plop --plopfile ./generator/plopfile.js"
+    "generate": "plop --plopfile ./generator/plopfile.js",
+    "prisma-migrate": "npx prisma migrate dev --name init",
+    "prisma-seed": "npx prisma db seed",
+    "prisma-studio": "npx prisma studio",
+    "test-setup": "docker-compose up -d",
+    "test-stop": "docker-compose down"
+  },
+  "prisma": {
+    "schema": "./src/prisma/schema.prisma",
+    "seed": "ts-node --compiler-options {\"module\":\"CommonJS\"} ./src/prisma/seed.ts"
   },
   "prettier": {
     "trailingComma": "all",
@@ -31,6 +40,7 @@
     "@heroicons/react": "^1.0.6",
     "@hookform/resolvers": "^2.8.8",
     "@next/eslint-plugin-next": "^12.1.6",
+    "@prisma/client": "^3.14.0",
     "@storybook/addon-actions": "^6.4.22",
     "@storybook/addon-essentials": "^6.4.22",
     "@storybook/addon-links": "^6.4.22",
@@ -55,10 +65,12 @@
     "postcss": "^8.4.13",
     "prettier": "^2.6.2",
     "prettier-plugin-tailwindcss": "^0.1.10",
+    "prisma": "^3.14.0",
     "react-hook-form": "^7.30.0",
     "recoil": "^0.7.3-alpha.2",
     "storybook-addon-next": "^1.6.2",
     "tailwindcss": "^3.0.24",
+    "ts-node": "^10.8.0",
     "tsconfig-paths-webpack-plugin": "^3.5.2",
     "typescript": "^4.6.4",
     "webpack": "^5.72.0",

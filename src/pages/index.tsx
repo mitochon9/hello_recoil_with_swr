@@ -1,9 +1,11 @@
+import { TodoForm } from '@/component/project/TodoForm';
+import { TodoList } from '@/component/project/TodoList';
+
 const Home: React.FC = () => (
-  <main className='mx-auto max-w-6xl py-6'>
-    <h1 className='text-lg font-bold text-primary-800'>
-      Welcome to Kikagaku Next.js Starter Kit!!
-    </h1>
-  </main>
+  <div className='mx-auto max-w-2xl'>
+    <TodoForm />
+    <TodoList />
+  </div>
 );
 
 export default Home;

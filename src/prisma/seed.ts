@@ -2,10 +2,8 @@
 import { prisma } from '../lib/prisma';
 
 const todo = async () => {
-  await prisma.todo.create({
-    data: {
-      title: 'This is a sample todo',
-    },
+  await prisma.todo.createMany({
+    data: [{ text: 'Todo 1 です' }, { text: 'Todo 2 です' }, { text: 'Todo 3 です' }],
   });
 };
 

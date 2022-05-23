@@ -4,7 +4,7 @@ import { propObj } from './TodoList.props';
 import { TodoListProps } from './TodoList.type';
 
 export default {
-  title: 'hello_recoil_with_swr/TodoList',
+  title: 'project/TodoList',
   component: TodoList,
 } as ComponentMeta<typeof TodoList>;
 

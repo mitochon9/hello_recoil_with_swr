@@ -43,7 +43,7 @@ export const TodoItem: React.FC<TodoItemProps> = ({
             {errors.text && <p className='text-pink-700'>※ 入力が必要です</p>}
             <div className='flex items-center gap-x-1'>
               <input
-                {...register('text')}
+                {...(register('text'), { defaultValue: todo?.text })}
                 className='w-full rounded-lg px-2 py-1 text-lg outline outline-primary-600'
               />
               <button type='submit'>

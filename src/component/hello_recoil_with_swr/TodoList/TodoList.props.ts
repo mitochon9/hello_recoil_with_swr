@@ -12,8 +12,8 @@ const defaultProps: TodoListProps = {
       toggleCompleted: () => {
         alert('toggleCompleted');
       },
-      setIsEditTodo: () => {
-        alert('setIsEditTodo');
+      setIsEdit: () => {
+        alert('setIsEdit');
       },
       confirmEditTodo: (text) => {
         alert(text);
@@ -21,8 +21,8 @@ const defaultProps: TodoListProps = {
       removeTodo: () => {
         alert('removeTodo');
       },
-      cancelEditTodo: () => {
-        alert('cancelEditTodo');
+      cancelEdit: () => {
+        alert('cancelEdit');
       },
     },
     {
@@ -35,8 +35,8 @@ const defaultProps: TodoListProps = {
       toggleCompleted: () => {
         alert('toggleCompleted');
       },
-      setIsEditTodo: () => {
-        alert('setIsEditTodo');
+      setIsEdit: () => {
+        alert('setIsEdit');
       },
       confirmEditTodo: (text) => {
         alert(text);
@@ -44,8 +44,8 @@ const defaultProps: TodoListProps = {
       removeTodo: () => {
         alert('removeTodo');
       },
-      cancelEditTodo: () => {
-        alert('cancelEditTodo');
+      cancelEdit: () => {
+        alert('cancelEdit');
       },
     },
     {
@@ -58,8 +58,8 @@ const defaultProps: TodoListProps = {
       toggleCompleted: () => {
         alert('toggleCompleted');
       },
-      setIsEditTodo: () => {
-        alert('setIsEditTodo');
+      setIsEdit: () => {
+        alert('setIsEdit');
       },
       confirmEditTodo: (text) => {
         alert(text);
@@ -67,8 +67,8 @@ const defaultProps: TodoListProps = {
       removeTodo: () => {
         alert('removeTodo');
       },
-      cancelEditTodo: () => {
-        alert('cancelEditTodo');
+      cancelEdit: () => {
+        alert('cancelEdit');
       },
     },
   ],

@@ -29,8 +29,8 @@ export const useSetIsEdit = (): UseSetIsEditReturnType => {
   );
 
   const cancelEdit = useCallback(() => {
-    setIsEdit(undefined);
-  }, [setIsEdit]);
+    setIsEditNum(undefined);
+  }, [setIsEditNum]);
 
   return { setIsEdit, cancelEdit };
 };

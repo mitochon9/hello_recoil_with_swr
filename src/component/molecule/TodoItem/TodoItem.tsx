@@ -15,10 +15,10 @@ export const TodoItem: React.FC<TodoItemProps> = ({
   todo,
   isEditNum,
   toggleCompleted,
-  setIsEditTodo,
+  setIsEdit,
   confirmEditTodo,
   removeTodo,
-  cancelEditTodo,
+  cancelEdit,
 }) => {
   const {
     register,
@@ -38,7 +38,7 @@ export const TodoItem: React.FC<TodoItemProps> = ({
   return (
     <>
       <div data-testid={baseId} className='flex items-center gap-x-1'>
-        {todo.id === isEditNum ? (
+        {todo?.id === isEditNum ? (
           <form onSubmit={handleSubmit(onSubmit)} className='w-full'>
             {errors.text && <p className='text-pink-700'>※ 入力が必要です</p>}
             <div className='flex items-center gap-x-1'>
@@ -49,7 +49,7 @@ export const TodoItem: React.FC<TodoItemProps> = ({
               <button type='submit'>
                 <Icon type='check' />
               </button>
-              <button type='button' onClick={cancelEditTodo}>
+              <button type='button' onClick={cancelEdit}>
                 <Icon type='cancel' />
               </button>
             </div>
@@ -62,7 +62,7 @@ export const TodoItem: React.FC<TodoItemProps> = ({
               onChange={() => toggleCompleted(todo.id)}
             />
             <p className='flex-1 truncate text-lg'>{todo.text}</p>
-            <button onClick={() => setIsEditTodo(todo.id)}>
+            <button onClick={() => setIsEdit(todo.id)}>
               <Icon type='edit' />
             </button>
             <button onClick={() => removeTodo(todo.id)}>

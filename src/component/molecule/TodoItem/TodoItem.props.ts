@@ -18,8 +18,8 @@ export const propObj: PropObj = {
     toggleCompleted: () => {
       alert('toggleCompleted');
     },
-    setIsEditTodo: () => {
-      alert('setIsEditTodo');
+    setIsEdit: () => {
+      alert('setIsEdit');
     },
     confirmEditTodo: (text) => {
       alert(text);
@@ -27,8 +27,8 @@ export const propObj: PropObj = {
     removeTodo: () => {
       alert('removeTodo');
     },
-    cancelEditTodo: () => {
-      alert('cancelEditTodo');
+    cancelEdit: () => {
+      alert('cancelEdit');
     },
   },
   inCompleted: {
@@ -42,8 +42,8 @@ export const propObj: PropObj = {
       alert('toggleCompleted');
     },
 
-    setIsEditTodo: () => {
-      alert('setIsEditTodo');
+    setIsEdit: () => {
+      alert('setIsEdit');
     },
     confirmEditTodo: (text) => {
       alert(text);
@@ -51,8 +51,8 @@ export const propObj: PropObj = {
     removeTodo: () => {
       alert('removeTodo');
     },
-    cancelEditTodo: () => {
-      alert('cancelEditTodo');
+    cancelEdit: () => {
+      alert('cancelEdit');
     },
   },
   edit: {
@@ -66,8 +66,8 @@ export const propObj: PropObj = {
       alert('toggleCompleted');
     },
 
-    setIsEditTodo: () => {
-      alert('setIsEditTodo');
+    setIsEdit: () => {
+      alert('setIsEdit');
     },
     confirmEditTodo: (text) => {
       alert(text);
@@ -75,8 +75,8 @@ export const propObj: PropObj = {
     removeTodo: () => {
       alert('removeTodo');
     },
-    cancelEditTodo: () => {
-      alert('cancelEditTodo');
+    cancelEdit: () => {
+      alert('cancelEdit');
     },
   },
   longText: {
@@ -90,8 +90,8 @@ export const propObj: PropObj = {
       alert('toggleCompleted');
     },
 
-    setIsEditTodo: () => {
-      alert('setIsEditTodo');
+    setIsEdit: () => {
+      alert('setIsEdit');
     },
     confirmEditTodo: (text) => {
       alert(text);
@@ -99,8 +99,8 @@ export const propObj: PropObj = {
     removeTodo: () => {
       alert('removeTodo');
     },
-    cancelEditTodo: () => {
-      alert('cancelEditTodo');
+    cancelEdit: () => {
+      alert('cancelEdit');
     },
   },
 };

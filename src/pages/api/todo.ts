@@ -41,7 +41,11 @@ const completeTodo = async (req: NextApiRequest, res: NextApiResponse) => {
 };
 
 const updateTodo = async (req: NextApiRequest, res: NextApiResponse) => {
-  await console.log(req.body.formData);
+  const result = await prisma.todo.update({
+    where: { id: Number(req.query.id) },
+    data: { text: req.body.formData.text },
+  });
+  return res.status(200).json(result);
 };
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {

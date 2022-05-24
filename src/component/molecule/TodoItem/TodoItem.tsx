@@ -4,10 +4,11 @@ import { useForm } from 'react-hook-form';
 import { z } from 'zod';
 import { TodoItemProps } from './TodoItem.type';
 import { Icon } from '@/component/atom/Icon';
+import { useTodo } from '@/hook/useTodo';
 
 export const baseId = 'molecule-todo-item';
 
-const formInputSchema = z.object({
+export const formInputSchema = z.object({
   text: z.string().nonempty(),
 });
 
@@ -16,10 +17,11 @@ export const TodoItem: React.FC<TodoItemProps> = ({
   isEditNum,
   toggleCompletedTodo,
   setIsEdit,
-  confirmEditTodo,
   removeTodo,
-  cancelEdit,
+  closeEdit,
 }) => {
+  const { updateTodo } = useTodo();
+
   const {
     register,
     handleSubmit,
@@ -31,30 +33,33 @@ export const TodoItem: React.FC<TodoItemProps> = ({
 
   const onSubmit = useCallback(
     (formData: z.infer<typeof formInputSchema>) => {
-      confirmEditTodo(formData.text);
+      updateTodo(todo.id, formData);
+      closeEdit();
     },
-    [confirmEditTodo],
+    [todo.id, updateTodo, closeEdit],
   );
 
   return (
     <>
       <div data-testid={baseId} className='flex items-center gap-x-1'>
         {todo?.id === isEditNum ? (
-          <form onSubmit={handleSubmit(onSubmit)} className='w-full'>
-            {errors.text && <p className='text-pink-700'>※ 入力が必要です</p>}
-            <div className='flex items-center gap-x-1'>
-              <input
-                {...register('text')}
-                className='w-full rounded-lg px-2 py-1 text-lg outline outline-primary-600'
-              />
-              <button type='submit'>
-                <Icon type='check' />
-              </button>
-              <button type='button' onClick={cancelEdit}>
-                <Icon type='cancel' />
-              </button>
-            </div>
-          </form>
+          !handleSubmit ? null : (
+            <form onSubmit={handleSubmit(onSubmit)} className='w-full'>
+              {errors.text && <p className='text-pink-700'>※ 入力が必要です</p>}
+              <div className='flex items-center gap-x-1'>
+                <input
+                  {...register('text')}
+                  className='w-full rounded-lg px-2 py-1 text-lg outline outline-primary-600'
+                />
+                <button type='submit'>
+                  <Icon type='check' />
+                </button>
+                <button type='button' onClick={closeEdit}>
+                  <Icon type='cancel' />
+                </button>
+              </div>
+            </form>
+          )
         ) : (
           <div className='flex w-full items-center gap-x-1'>
             <input

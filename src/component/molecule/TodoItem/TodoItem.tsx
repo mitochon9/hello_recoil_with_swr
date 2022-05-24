@@ -14,7 +14,7 @@ const formInputSchema = z.object({
 export const TodoItem: React.FC<TodoItemProps> = ({
   todo,
   isEditNum,
-  toggleCompleted,
+  toggleCompletedTodo,
   setIsEdit,
   confirmEditTodo,
   removeTodo,
@@ -26,6 +26,7 @@ export const TodoItem: React.FC<TodoItemProps> = ({
     formState: { errors },
   } = useForm<z.infer<typeof formInputSchema>>({
     resolver: zodResolver(formInputSchema),
+    defaultValues: { text: todo.text },
   });
 
   const onSubmit = useCallback(
@@ -43,7 +44,7 @@ export const TodoItem: React.FC<TodoItemProps> = ({
             {errors.text && <p className='text-pink-700'>※ 入力が必要です</p>}
             <div className='flex items-center gap-x-1'>
               <input
-                {...(register('text'), { defaultValue: todo?.text })}
+                {...register('text')}
                 className='w-full rounded-lg px-2 py-1 text-lg outline outline-primary-600'
               />
               <button type='submit'>
@@ -59,7 +60,7 @@ export const TodoItem: React.FC<TodoItemProps> = ({
             <input
               type='checkbox'
               checked={todo.isCompleted}
-              onChange={() => toggleCompleted(todo.id)}
+              onChange={() => toggleCompletedTodo(todo.id)}
             />
             <p className='flex-1 truncate text-lg'>{todo.text}</p>
             <button onClick={() => setIsEdit(todo.id)}>

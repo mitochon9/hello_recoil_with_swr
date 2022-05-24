@@ -8,6 +8,7 @@ interface UseSetTodoReturnType {
   getTodoList: (url: string) => Promise<Todo[] | undefined>;
   createTodo: (formData: z.infer<typeof formInputSchema>) => void;
   removeTodo: (id: number) => void;
+  toggleCompleteTodo: (id: number, isCompleted: boolean) => void;
 }
 
 interface UseTodoReturnType extends UseSetTodoReturnType {
@@ -46,5 +47,14 @@ export const useSetTodo = (): UseSetTodoReturnType => {
     });
   };
 
-  return { getTodoList, createTodo, removeTodo };
+  const toggleCompleteTodo = async (id: number, isCompleted: boolean) => {
+    await mutate('todoList', async () => {
+      const body = { type: 'complete', isCompleted };
+      await axios
+        .put('api/todo', body, { params: { id: id } })
+        .catch((error) => console.error(error));
+    });
+  };
+
+  return { getTodoList, createTodo, removeTodo, toggleCompleteTodo };
 };

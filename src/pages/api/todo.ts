@@ -33,7 +33,11 @@ const removeTodo = async (req: NextApiRequest, res: NextApiResponse) => {
 };
 
 const completeTodo = async (req: NextApiRequest, res: NextApiResponse) => {
-  await console.log(req.body.formData);
+  const result = await prisma.todo.update({
+    where: { id: Number(req.query.id) },
+    data: { isCompleted: req.body.isCompleted ? false : true },
+  });
+  return res.status(200).json(result);
 };
 
 const updateTodo = async (req: NextApiRequest, res: NextApiResponse) => {

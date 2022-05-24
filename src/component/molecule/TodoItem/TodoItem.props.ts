@@ -15,20 +15,17 @@ export const propObj: PropObj = {
       isCompleted: true,
     },
     isEditNum: 2,
-    toggleCompleted: () => {
-      alert('toggleCompleted');
+    toggleCompletedTodo: () => {
+      alert('toggleCompletedTodo');
     },
     setIsEdit: () => {
       alert('setIsEdit');
     },
-    confirmEditTodo: (text) => {
-      alert(text);
-    },
     removeTodo: () => {
       alert('removeTodo');
     },
-    cancelEdit: () => {
-      alert('cancelEdit');
+    closeEdit: () => {
+      alert('closeEdit');
     },
   },
   inCompleted: {
@@ -38,21 +35,18 @@ export const propObj: PropObj = {
       isCompleted: false,
     },
     isEditNum: 2,
-    toggleCompleted: () => {
-      alert('toggleCompleted');
+    toggleCompletedTodo: () => {
+      alert('toggleCompletedTodo');
     },
 
     setIsEdit: () => {
       alert('setIsEdit');
     },
-    confirmEditTodo: (text) => {
-      alert(text);
-    },
     removeTodo: () => {
       alert('removeTodo');
     },
-    cancelEdit: () => {
-      alert('cancelEdit');
+    closeEdit: () => {
+      alert('closeEdit');
     },
   },
   edit: {
@@ -62,21 +56,18 @@ export const propObj: PropObj = {
       isCompleted: false,
     },
     isEditNum: 1,
-    toggleCompleted: () => {
-      alert('toggleCompleted');
+    toggleCompletedTodo: () => {
+      alert('toggleCompletedTodo');
     },
 
     setIsEdit: () => {
       alert('setIsEdit');
     },
-    confirmEditTodo: (text) => {
-      alert(text);
-    },
     removeTodo: () => {
       alert('removeTodo');
     },
-    cancelEdit: () => {
-      alert('cancelEdit');
+    closeEdit: () => {
+      alert('closeEdit');
     },
   },
   longText: {
@@ -86,21 +77,18 @@ export const propObj: PropObj = {
       isCompleted: false,
     },
     isEditNum: 2,
-    toggleCompleted: () => {
-      alert('toggleCompleted');
+    toggleCompletedTodo: () => {
+      alert('toggleCompletedTodo');
     },
 
     setIsEdit: () => {
       alert('setIsEdit');
     },
-    confirmEditTodo: (text) => {
-      alert(text);
-    },
     removeTodo: () => {
       alert('removeTodo');
     },
-    cancelEdit: () => {
-      alert('cancelEdit');
+    closeEdit: () => {
+      alert('closeEdit');
     },
   },
 };

@@ -4,7 +4,7 @@ import { isEditNumState } from '@/state/isEditNumState';
 
 interface UseSetIsEditReturnType {
   setIsEdit: (id: number | undefined) => void;
-  cancelEdit: () => void;
+  closeEdit: () => void;
 }
 
 interface UseIsEditReturnType extends UseSetIsEditReturnType {
@@ -13,9 +13,9 @@ interface UseIsEditReturnType extends UseSetIsEditReturnType {
 
 export const useIsEdit = (): UseIsEditReturnType => {
   const isEditNum = useRecoilValue(isEditNumState);
-  const { setIsEdit, cancelEdit } = useSetIsEdit();
+  const { setIsEdit, closeEdit } = useSetIsEdit();
 
-  return { isEditNum, setIsEdit, cancelEdit };
+  return { isEditNum, setIsEdit, closeEdit };
 };
 
 export const useSetIsEdit = (): UseSetIsEditReturnType => {
@@ -28,9 +28,9 @@ export const useSetIsEdit = (): UseSetIsEditReturnType => {
     [setIsEditNum],
   );
 
-  const cancelEdit = useCallback(() => {
+  const closeEdit = useCallback(() => {
     setIsEditNum(undefined);
   }, [setIsEditNum]);
 
-  return { setIsEdit, cancelEdit };
+  return { setIsEdit, closeEdit };
 };

@@ -3,18 +3,18 @@ import { useIsEdit } from '@/hook/useIsEdit';
 import { useTodo } from '@/hook/useTodo';
 
 const TodoList: React.FC = () => {
-  const { todoList } = useTodo();
+  const { todoList, removeTodo, toggleCompleteTodo, updateTodo } = useTodo();
 
-  const { isEditNum, setIsEdit, cancelEdit } = useIsEdit();
+  const { isEditNum, setIsEdit, closeEdit } = useIsEdit();
 
   const defaultProps = todoList?.map((todo) => ({
     todo: todo,
     isEditNum: isEditNum,
-    toggleCompleted: () => alert('toggleCompleted'),
+    toggleCompletedTodo: () => toggleCompleteTodo(todo.id, todo.isCompleted),
     setIsEdit: () => setIsEdit(todo.id),
-    confirmEditTodo: () => alert('confirmEditTodo'),
-    removeTodo: () => alert('removeTodo'),
-    cancelEdit: () => cancelEdit(),
+    updateTodo: updateTodo,
+    removeTodo: removeTodo,
+    closeEdit: () => closeEdit(),
   }));
 
   return <TodoListPresenter todoList={defaultProps} />;

@@ -3,7 +3,7 @@ import { useIsEdit } from '@/hook/useIsEdit';
 import { useTodo } from '@/hook/useTodo';
 
 const TodoList: React.FC = () => {
-  const { todoList } = useTodo();
+  const { todoList, removeTodo } = useTodo();
 
   const { isEditNum, setIsEdit, cancelEdit } = useIsEdit();
 
@@ -13,7 +13,7 @@ const TodoList: React.FC = () => {
     toggleCompleted: () => alert('toggleCompleted'),
     setIsEdit: () => setIsEdit(todo.id),
     confirmEditTodo: () => alert('confirmEditTodo'),
-    removeTodo: () => alert('removeTodo'),
+    removeTodo: removeTodo,
     cancelEdit: () => cancelEdit(),
   }));
 

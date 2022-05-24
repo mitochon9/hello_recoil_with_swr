@@ -7,6 +7,7 @@ import { formInputSchema } from '@/component/project/TodoForm';
 interface UseSetTodoReturnType {
   getTodoList: (url: string) => Promise<Todo[] | undefined>;
   createTodo: (formData: z.infer<typeof formInputSchema>) => void;
+  removeTodo: (id: number) => void;
 }
 
 interface UseTodoReturnType extends UseSetTodoReturnType {
@@ -36,5 +37,14 @@ export const useSetTodo = (): UseSetTodoReturnType => {
     });
   };
 
-  return { getTodoList, createTodo };
+  const removeTodo = async (id: number) => {
+    await mutate('todoList', async () => {
+      const body = { type: 'remove' };
+      await axios
+        .put('api/todo', body, { params: { id: id } })
+        .catch((error) => console.error(error));
+    });
+  };
+
+  return { getTodoList, createTodo, removeTodo };
 };

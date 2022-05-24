@@ -8,21 +8,50 @@ export const requestBodySchema = z.object({
   }),
 });
 
-export default async function handler(req: NextApiRequest, res: NextApiResponse) {
-  if (req.method === 'GET') {
-    const result = await prisma.todo.findMany({
-      where: { isCompleted: false },
-    });
-    return res.status(200).json(result);
-  }
+const getTodoList = async (req: NextApiRequest, res: NextApiResponse) => {
+  const result = await prisma.todo.findMany({
+    where: { isDeleted: false },
+  });
+  return res.status(200).json(result);
+};
 
-  if (req.method === 'POST') {
-    const result = await prisma.todo.create({
-      data: {
-        text: req.body.formData.text,
-      },
-    });
-    return res.status(200).json(result);
+const createTodo = async (req: NextApiRequest, res: NextApiResponse) => {
+  const result = await prisma.todo.create({
+    data: {
+      text: req.body.formData.text,
+    },
+  });
+  return res.status(200).json(result);
+};
+
+const removeTodo = async (req: NextApiRequest, res: NextApiResponse) => {
+  const result = await prisma.todo.update({
+    where: { id: Number(req.query.id) },
+    data: { isDeleted: true },
+  });
+  return res.status(200).json(result);
+};
+
+const completeTodo = async (req: NextApiRequest, res: NextApiResponse) => {
+  await console.log(req.body.formData);
+};
+
+const updateTodo = async (req: NextApiRequest, res: NextApiResponse) => {
+  await console.log(req.body.formData);
+};
+
+export default async function handler(req: NextApiRequest, res: NextApiResponse) {
+  switch (req.method) {
+    case 'GET':
+      return getTodoList(req, res);
+    case 'POST':
+      return createTodo(req, res);
+    case 'PUT':
+      const { type } = req.body;
+      if (type == 'remove') return removeTodo(req, res);
+      if (type === 'complete') return completeTodo(req, res);
+      if (type == 'update') return updateTodo(req, res);
+      return res.status(404).json({ message: 'エラー。クエリタイプが入力されていません。' });
   }
 
   return res.status(404).json({ message: 'Not found' });

@@ -3,14 +3,10 @@ import { z } from 'zod';
 import { formInputSchema } from '.';
 
 export interface TodoFormProps {
-  register?: UseFormRegister<{
-    text: string;
-  }>;
-  handleSubmit?: UseFormHandleSubmit<{
-    text: string;
-  }>;
-  errors?: {
-    text?: FieldError | undefined;
+  setTodo: {
+    register?: UseFormRegister<z.infer<typeof formInputSchema>>;
+    handleSubmit?: UseFormHandleSubmit<z.infer<typeof formInputSchema>>;
+    errors?: { text?: FieldError | undefined };
+    onSubmit: (formData: z.infer<typeof formInputSchema>) => void;
   };
-  onSubmit: (formData: z.infer<typeof formInputSchema>) => void;
 }

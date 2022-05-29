@@ -1,8 +1,10 @@
 import { TodoFormProps } from './TodoForm.type';
 
 const defaultProps: TodoFormProps = {
-  onSubmit: () => {
-    alert('onSubmit');
+  setTodo: {
+    onSubmit: () => {
+      alert('onSubmit');
+    },
   },
 };
 

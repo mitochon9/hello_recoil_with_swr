@@ -13,9 +13,9 @@ interface UseIsEditReturnType extends UseSetIsEditReturnType {
 
 export const useIsEdit = (): UseIsEditReturnType => {
   const isEditNum = useRecoilValue(isEditNumState);
-  const { setIsEdit, closeEdit } = useSetIsEdit();
+  const setIsEdit = useSetIsEdit();
 
-  return { isEditNum, setIsEdit, closeEdit };
+  return { isEditNum, ...setIsEdit };
 };
 
 export const useSetIsEdit = (): UseSetIsEditReturnType => {
